@@ -46,6 +46,39 @@ img {
     object-fit: contain;
 }
 
+.name-card {
+    grid-area: name;
+}
+
+.headshot-card {
+    grid-area: headshot;
+}
+
+.bio-card {
+    grid-area: bio;
+}
+
+.projects-card {
+    grid-area: projects;
+}
+
+.articles-card {
+    grid-area: articles;
+}
+
+.socials-card {
+    grid-area: socials;
+}
+
+.cards {
+    display: grid;
+    grid-template-areas: 
+        'name bio bio bio'
+        'headshot bio bio bio'
+        'projects projects articles articles'
+        'socials socials socials socials';
+}
+
 .card {
     background-color: #fff;
     border-radius: 10px;
@@ -53,12 +86,4 @@ img {
     margin: 20px;
     box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
-}
-
-.name-card {
-
-}
-
-.headshot-card {
-
 }
