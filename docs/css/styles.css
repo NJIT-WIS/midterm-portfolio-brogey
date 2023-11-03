@@ -1,0 +1,19 @@
+:root {
+    --base-link-color: #000000;
+    --primary-color: #00095C;
+    --secondary-color: #000;
+    --card-color: #fff;
+
+    --font-primary: 'Montserrat', sans-serif;
+    --font-secondary: 'Inter', sans-serif;
+
+    --base-font-size: 1rem;
+    --h1-font-size: 4rem;
+    --h2-font-size: 1.75rem;
+    --h3-font-size: 1.5rem;
+}
+
+body {
+    background-image: url(../images/johny-goerend-U_diPCXCBxU-unsplash.jpg);
+    font: var(--base-font-size) / 1.6 var(--font-primary);
+}
