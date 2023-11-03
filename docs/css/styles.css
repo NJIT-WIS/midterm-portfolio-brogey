@@ -141,8 +141,13 @@ a:hover {
 }
 
 .socials-card img {
-    max-width: 30%;
-    max-height: 30%;
+    max-width: 20%;
+    max-height: 20%;
+}
+
+.socials-links img{
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .cards {
@@ -154,8 +159,4 @@ a:hover {
         'projects projects projects articles articles articles'
         'socials socials socials socials socials socials';
     grid-auto-rows: minmax(100px, auto);
-}
-
-.card {
-  
 }
