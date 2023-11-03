@@ -42,8 +42,9 @@ h3 {
     font-size: var(--h3-font-size);
 }
 
-.color-text {
+.color-bold-text {
     color: var(--primary-color);
+    font-weight: bold;
 }
 
 a {
@@ -137,6 +138,11 @@ a:hover {
     transition: 0.3s;
 
     text-align: center;
+}
+
+.socials-card img {
+    max-width: 30%;
+    max-height: 30%;
 }
 
 .cards {
