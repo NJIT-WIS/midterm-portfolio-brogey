@@ -222,7 +222,7 @@ footer {
     font-size: 1.5vw;
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 600px) {
     .cards {
         display: grid;
         grid-template-areas: 
