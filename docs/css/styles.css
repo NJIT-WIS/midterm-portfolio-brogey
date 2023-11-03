@@ -17,3 +17,33 @@ body {
     background-image: url(../images/johny-goerend-U_diPCXCBxU-unsplash.jpg);
     font: var(--base-font-size) / 1.6 var(--font-primary);
 }
+
+/* Base Element Styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-secondary);
+    text-transform: capitalize;
+}
+
+a {
+    font-family: var(--font-secondary);
+    color: var(--base-link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Layout Styles */
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 5px 5px;
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
