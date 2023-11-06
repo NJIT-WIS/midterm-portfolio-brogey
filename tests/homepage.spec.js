@@ -140,3 +140,19 @@ test('Check for a hyperlink to "resume.html"', async ({ page }) => {
   // Perform an assertion to check if the hyperlink is present
   expect(isResumeLinkPresent).not.toBeNull();
 });
+
+test('Check for a link to a GitHub profile', async ({ page }) => {
+  await page.goto('/'); // Replace with the URL of the HTML file you want to test
+
+  // Define a selector for the link to the GitHub profile
+  const githubLinkSelector = 'a[href*="github.com"]'; // This selects any link containing "github.com" in the href attribute
+
+  // Use the `waitForSelector` method to wait for the selector to appear on the page
+  await page.waitForSelector(githubLinkSelector, { timeout: 5000 });
+
+  // Check if a link to a GitHub profile is present
+  const isGithubLinkPresent = await page.$(githubLinkSelector);
+
+  // Perform an assertion to check if the link is present
+  expect(isGithubLinkPresent).not.toBeNull();
+});
