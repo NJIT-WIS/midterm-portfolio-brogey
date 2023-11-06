@@ -188,3 +188,20 @@ test('Check for a link to a Twitter profile', async ({ page }) => {
   // Perform an assertion to check if the link is present
   expect(isTwitterLinkPresent).not.toBeNull();
 });
+
+test('Check for an image inside the "headshot-card" div', async ({ page }) => {
+  await page.goto('/'); // Replace with the URL of the page you want to test
+
+  // Define a selector for the "headshot-card" div
+  const headshotCardSelector = 'div.headshot-card'; // Replace with the actual selector
+
+  // Use the `waitForSelector` method to wait for the "headshot-card" div to appear on the page
+  await page.waitForSelector(headshotCardSelector, { timeout: 5000 });
+
+  // Check if an image is present inside the "headshot-card" div
+  const imageSelector = `${headshotCardSelector} img`; // Combine the "headshot-card" selector with the image tag
+  const isImagePresent = await page.$(imageSelector);
+
+  // Perform an assertion to check if an image is present
+  expect(isImagePresent).not.toBeNull();
+});
