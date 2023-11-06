@@ -221,3 +221,45 @@ test('Check for a form with an email input', async ({ page }) => {
   // Perform an assertion to check if the form is present
   expect(isEmailFormPresent).not.toBeNull();
 });
+
+
+test('Check for layout changes at 600px or lower screen width', async ({ page }) => {
+  await page.goto('/'); // Replace with the URL of the page you want to test
+
+  // Set the viewport size to a width of 600px or lower
+  await page.setViewportSize({ width: 600, height: 800 });
+
+  // You can also add assertions here to check for specific layout changes
+  // For example, you can use the page.locator or page.$ method to select elements and assert their visibility, position, or other properties.
+
+   // Define a selector for the element you want to check for centering
+   const elementSelector = 'div.name-card'; // Replace with the actual selector
+
+   // Use the `locator.boundingBox()` method to get the element's position and size
+   const elementBoundingBox = await page.locator(elementSelector).boundingBox();
+
+  if (elementBoundingBox) {
+    // Get the viewport size
+    const viewportSize = page.viewportSize();
+
+    // Calculate the viewport center
+    const viewportCenterX = viewportSize.width / 2;
+    const viewportCenterY = viewportSize.height / 2;
+
+    // Calculate the element's center
+    const elementCenterX = elementBoundingBox.x + elementBoundingBox.width / 2;
+    const elementCenterY = elementBoundingBox.y + elementBoundingBox.height / 2;
+
+    // Define a tolerance level for centering (in pixels)
+    const tolerance = 600; // Adjust as needed
+
+    // Check if the element's center is within the tolerance of the viewport center
+    const isCentered = Math.abs(elementCenterX - viewportCenterX) <= tolerance &&
+      Math.abs(elementCenterY - viewportCenterY) <= tolerance;
+
+    // Perform an assertion to check if the element is centered
+    expect(isCentered).toBe(true);
+  } else {
+    throw new Error('Element not found or not visible.');
+  }
+});
