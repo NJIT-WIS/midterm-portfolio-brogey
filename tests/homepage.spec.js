@@ -124,3 +124,19 @@ test('Check for "socials-card" div', async ({ page }) => {
   // Perform an assertion to check if the div is present
   expect(isSocialsCardPresent).not.toBeNull();
 });
+
+test('Check for a hyperlink to "resume.html"', async ({ page }) => {
+  await page.goto('/'); // Replace with the URL of the page you want to test
+
+  // Define a selector for the hyperlink
+  const resumeLinkSelector = 'a[href="resume.html"]'; // Replace with the actual selector
+
+  // Use the `waitForSelector` method to wait for the selector to appear on the page
+  await page.waitForSelector(resumeLinkSelector, { timeout: 5000 });
+
+  // Check if the hyperlink to "resume.html" is present
+  const isResumeLinkPresent = await page.$(resumeLinkSelector);
+
+  // Perform an assertion to check if the hyperlink is present
+  expect(isResumeLinkPresent).not.toBeNull();
+});
