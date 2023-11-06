@@ -45,6 +45,22 @@ test('check that UTF-8 meta tag is present', async ({ page }) => {
   await expect(metaCharset).toBe('utf-8');
 });
 
+test('Check for "bio-card" div', async ({ page }) => {
+  await page.goto('/'); // Replace with the URL of the page you want to test
+
+  // Define a selector for the div with the "bio-card" class
+  const bioCardSelector = 'div.bio-card'; // Replace with the actual selector
+
+  // Use the `waitForSelector` method to wait for the selector to appear on the page
+  await page.waitForSelector(bioCardSelector, { timeout: 5000 });
+
+  // Check if the "bio-card" div is present
+  const isBioCardPresent = await page.$(bioCardSelector);
+
+  // Perform an assertion to check if the div is present
+  expect(isBioCardPresent).not.toBeNull();
+});
+
 test('Check for "articles-card" div', async ({ page }) => {
   await page.goto('/'); // Replace with the URL of the page you want to test
 
