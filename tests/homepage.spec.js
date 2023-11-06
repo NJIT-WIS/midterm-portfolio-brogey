@@ -108,3 +108,19 @@ test('Check for "projects-card" div', async ({ page }) => {
   // Perform an assertion to check if the div is present
   expect(isProjectsCardPresent).not.toBeNull();
 });
+
+test('Check for "socials-card" div', async ({ page }) => {
+  await page.goto('/'); // Replace with the URL of the page you want to test
+
+  // Define a selector for the div with the "socials-card" class
+  const socialsCardSelector = 'div.socials-card'; // Replace with the actual selector
+
+  // Use the `waitForSelector` method to wait for the selector to appear on the page
+  await page.waitForSelector(socialsCardSelector, { timeout: 5000 });
+
+  // Check if the "socials-card" div is present
+  const isSocialsCardPresent = await page.$(socialsCardSelector);
+
+  // Perform an assertion to check if the div is present
+  expect(isSocialsCardPresent).not.toBeNull();
+});
