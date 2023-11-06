@@ -23,6 +23,17 @@ test('Check that a meta tag exists for a site description', async ({ page }) => 
   await expect(metaTags.length).toBeGreaterThan(0);
 });
 
+test('Check that a meta tag exists for site keywords', async ({ page }) => {
+  await page.goto('/');
+
+  // Define the name of the meta tag you want to check
+  const metaTagName = 'keywords';
+  const metaTags = await page.$$(`meta[name="${metaTagName}"]`);
+
+  // Check if at least one matching meta tag is found
+  await expect(metaTags.length).toBeGreaterThan(0);
+});
+
 test('check that UTF-8 meta tag is present', async ({ page }) => {
   //Arrange: Go to the site homepage
   await page.goto('/');
