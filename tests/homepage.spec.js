@@ -44,3 +44,19 @@ test('check that UTF-8 meta tag is present', async ({ page }) => {
   //Assert: Check if the charset is set to UTF-8
   await expect(metaCharset).toBe('utf-8');
 });
+
+test('Check for "articles-card" div', async ({ page }) => {
+  await page.goto('/'); // Replace with the URL of the page you want to test
+
+  // Define a selector for the div with the "articles-card" class
+  const articlesCardSelector = 'div.articles-card'; // Replace with the actual selector
+
+  // Use the `waitForSelector` method to wait for the selector to appear on the page
+  await page.waitForSelector(articlesCardSelector, { timeout: 5000 });
+
+  // Check if the "articles-card" div is present
+  const isArticlesCardPresent = await page.$(articlesCardSelector);
+
+  // Perform an assertion to check if the div is present
+  expect(isArticlesCardPresent).not.toBeNull();
+});
