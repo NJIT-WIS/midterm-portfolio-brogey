@@ -205,3 +205,19 @@ test('Check for an image inside the "headshot-card" div', async ({ page }) => {
   // Perform an assertion to check if an image is present
   expect(isImagePresent).not.toBeNull();
 });
+
+test('Check for a form with an email input', async ({ page }) => {
+  await page.goto('/'); // Replace with the URL of the page you want to test
+
+  // Define a selector for the form with an email input
+  const emailFormSelector = 'form input[type="email"]'; // Replace with the actual selector
+
+  // Use the `waitForSelector` method to wait for the form to appear on the page
+  await page.waitForSelector(emailFormSelector, { timeout: 5000 });
+
+  // Check if a form with an email input is present
+  const isEmailFormPresent = await page.$(emailFormSelector);
+
+  // Perform an assertion to check if the form is present
+  expect(isEmailFormPresent).not.toBeNull();
+});
