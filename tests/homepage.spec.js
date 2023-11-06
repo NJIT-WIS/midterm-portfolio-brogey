@@ -172,3 +172,19 @@ test('Check for a link to a LinkedIn profile', async ({ page }) => {
   // Perform an assertion to check if the link is present
   expect(isLinkedinLinkPresent).not.toBeNull();
 });
+
+test('Check for a link to a Twitter profile', async ({ page }) => {
+  await page.goto('/'); // Replace with the URL of the HTML file you want to test
+
+  // Define a selector for the link to the Twitter profile
+  const twitterLinkSelector = 'a[href*="twitter.com"]'; // This selects any link containing "twitter.com" in the href attribute
+
+  // Use the `waitForSelector` method to wait for the selector to appear on the page
+  await page.waitForSelector(twitterLinkSelector, { timeout: 5000 });
+
+  // Check if a link to a Twitter profile is present
+  const isTwitterLinkPresent = await page.$(twitterLinkSelector);
+
+  // Perform an assertion to check if the link is present
+  expect(isTwitterLinkPresent).not.toBeNull();
+});
