@@ -290,3 +290,16 @@ test('Check for icons with the "fa-brands" class', async ({ page }) => {
   // Perform an assertion to check if icons with the "fa-brands" class are present
   expect(areIconsPresent).not.toBeNull();
 });
+
+test('Check for a link to "fonts.googleapis.com"', async ({ page }) => {
+  await page.goto('/'); // Replace with the URL of the page you want to test
+
+  // Define a selector for <link> elements with href containing "fonts.googleapis.com"
+  const linkSelector = 'link[href*="fonts.googleapis.com"]';
+
+  // Use the `querySelectorAll` method to get all matching <link> elements
+  const linkElements = await page.$$(linkSelector);
+
+  // Perform an assertion to check if any <link> elements are present
+  expect(linkElements.length).toBeGreaterThan(0);
+});
