@@ -263,3 +263,13 @@ test('Check for layout changes at 600px or lower screen width', async ({ page })
     throw new Error('Element not found or not visible.');
   }
 });
+
+test('Check for the title "Brody Jackson"', async ({ page }) => {
+  await page.goto('/'); // Replace with the URL of the HTML file you want to test
+
+  // Get the page's title
+  const pageTitle = await page.title();
+
+  // Check if the title is "Brody Jackson"
+  expect(pageTitle).toBe('Brody Jackson');
+});
