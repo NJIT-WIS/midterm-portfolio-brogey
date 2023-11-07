@@ -303,3 +303,19 @@ test('Check for a link to "fonts.googleapis.com"', async ({ page }) => {
   // Perform an assertion to check if any <link> elements are present
   expect(linkElements.length).toBeGreaterThan(0);
 });
+
+test('Check for the presence of a footer', async ({ page }) => {
+  await page.goto('/'); // Replace with the URL of the page you want to test
+
+  // Define a selector for the footer element
+  const footerSelector = 'footer'; // Replace with the actual selector
+
+  // Use the `waitForSelector` method to wait for the footer element to appear on the page
+  await page.waitForSelector(footerSelector, { timeout: 5000 });
+
+  // Check if the footer element is present
+  const isFooterPresent = await page.$(footerSelector);
+
+  // Perform an assertion to check if the footer is present
+  expect(isFooterPresent).not.toBeNull();
+});
