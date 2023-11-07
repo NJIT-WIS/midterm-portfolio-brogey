@@ -273,3 +273,20 @@ test('Check for the title "Brody Jackson"', async ({ page }) => {
   // Check if the title is "Brody Jackson"
   expect(pageTitle).toBe('Brody Jackson');
 });
+
+
+test('Check for icons with the "fa-brands" class', async ({ page }) => {
+  await page.goto('/'); // Replace with the URL of the page you want to test
+
+  // Define a selector for elements with the "fa-brands" class
+  const iconSelector = '.fa-brands'; // Replace with the actual selector
+
+  // Use the `waitForSelector` method to wait for elements with the "fa-brands" class to appear on the page
+  await page.waitForSelector(iconSelector, { timeout: 5000 });
+
+  // Check if any elements with the "fa-brands" class are present
+  const areIconsPresent = await page.$(iconSelector);
+
+  // Perform an assertion to check if icons with the "fa-brands" class are present
+  expect(areIconsPresent).not.toBeNull();
+});
